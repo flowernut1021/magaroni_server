@@ -8,6 +8,7 @@ class User {
     User() {
         this.role = RoleType.CUSTOMER
         this.status = UserStatus.VALID
+        this.timeStamp = new Date()
     }
 
     String phoneNumber
@@ -30,6 +31,7 @@ class User {
     String bodyFit
     String introduction
 
+    Date timeStamp
 
     static mapping = {
         table 'user'
@@ -55,6 +57,8 @@ class User {
         bodyCate column: 'body_cate', sqlType: 'varchar(10)'
         bodyFit column: 'body_fit', sqlType: 'varchar(30)'
         introduction column: 'introduction', sqlType: 'varchar(500)'
+
+        timeStamp column: 'time_stamp', sqlType: 'date'
     }
     static constraints = {
 
@@ -77,6 +81,8 @@ class User {
         bodyCate nullable: true, unique: false
         bodyFit nullable: true, unique: false
         introduction nullable: true, unique: false
+
+        timeStamp nullable: true, unique: false
     }
 
 

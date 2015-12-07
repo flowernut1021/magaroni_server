@@ -11,6 +11,7 @@ class Technician {
     Technician() {
         this.status = CommonStatus.VALID
         this.jobLevel = JobLevel.JUNIOR
+        this.registerDate = new Date()
     }
 
     String name
@@ -18,8 +19,8 @@ class Technician {
     CommonStatus status
     String jobTel
 
-    int jobYear
-    int jobStar
+    int jobYear  //工作年限
+    int jobStar  //星级
     int jobOrderCount //接单数
     String jobExperience
     JobLevel jobLevel //
@@ -31,6 +32,9 @@ class Technician {
 
     BigDecimal jobWishSalary //期望薪资
     BigDecimal jobAveragePrice //均价
+
+    Date registerDate
+
 
     static mapping = {
         table 'technician'
@@ -55,6 +59,8 @@ class Technician {
 
         jobWishSalary column: 'job_wish_salary', sqlType: 'double'
         jobAveragePrice column: 'job_average_price', sqlType: 'double'
+
+        registerDate column: 'register_date', sqlType: 'date'
     }
 
 
@@ -78,5 +84,6 @@ class Technician {
         jobWishSalary nullable: true, unique: false
         jobAveragePrice nullable: true, unique: false
 
+        registerDate nullable: true, unique: false
     }
 }
