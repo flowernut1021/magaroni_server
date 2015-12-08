@@ -31,11 +31,11 @@ class Order {
         status column: 'status', sqlType: 'varchar(30)'
         shouldPrice column: 'should_price', sqlType: 'double'
         orderPrice column: 'order_price', sqlType: 'double'
-        subscribeStartTime column: 'subscribe_start_time', sqlType: 'date'
-        subscribeEndTime column: 'subscribe_end_time', sqlType: 'date'
+        subscribeStartTime column: 'subscribe_start_time', sqlType: 'datetime'
+        subscribeEndTime column: 'subscribe_end_time', sqlType: 'datetime'
 
         payType column: 'pay_type', sqlType: 'varchar(50)'
-        createTime column: 'create_time', sqlType: 'date'
+        createTime column: 'create_time', sqlType: 'datetime'
     }
 
     static constraints = {

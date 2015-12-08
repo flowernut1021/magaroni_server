@@ -39,8 +39,6 @@ class Technician {
     static mapping = {
         table 'technician'
 
-        id generator: 'uuid'
-
         name column: 'name', sqlType: 'varchar(30)', index: 'technician_name_Idx'
         jobTel column: 'job_tel', sqlType: 'varchar(30)', index: 'jobTel_Idx'
         password column: 'password', sqlType: 'varchar(30)'
@@ -60,7 +58,7 @@ class Technician {
         jobWishSalary column: 'job_wish_salary', sqlType: 'double'
         jobAveragePrice column: 'job_average_price', sqlType: 'double'
 
-        registerDate column: 'register_date', sqlType: 'date'
+        registerDate column: 'register_date', sqlType: 'datetime'
     }
 
 

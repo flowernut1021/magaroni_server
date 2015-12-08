@@ -8,8 +8,6 @@ class ItemCate {
     static mapping = {
         table: 'item_cate'
 
-        id generator: 'uuid'
-
         name column: 'name', sqlType: 'varchar(30)'
         introduction column: 'introduction', sqlType: 'varchar(500)'
     }

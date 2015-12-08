@@ -20,11 +20,9 @@ class Comments {
     static mapping = {
         table: 'comments'
 
-        id generator: 'uuid'
-
         contentLevel column: 'content_level', sqlType: 'varchar(30)'
         content column: 'content', sqlType: 'varchar(1000)'
-        commentDate column: 'comment_date', sqlType: 'date'
+        commentDate column: 'comment_date', sqlType: 'datetime'
     }
 
     static constraints = {

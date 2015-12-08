@@ -36,8 +36,6 @@ class User {
     static mapping = {
         table 'user'
 
-        id generator: 'uuid'
-
         phoneNumber column: 'phone_number', sqlType: 'varchar(30)', index: 'phoneNumber_Idx'
         password column: 'password', sqlType: 'varchar(30)'
         role column: 'role', sqlType: 'varchar(30)'

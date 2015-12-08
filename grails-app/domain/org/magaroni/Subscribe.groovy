@@ -5,7 +5,8 @@ import org.magaroni.conftype.SubscribeStatus
 class Subscribe {
 
     Subscribe() {
-        this.status = SubscribeStatus.INIT;
+        this.status = SubscribeStatus.INIT
+        this.createTime = new Date()
     }
 
 //    user_id	foreign_key		预约人
@@ -16,20 +17,21 @@ class Subscribe {
     Date startTime
     Date endTime
     SubscribeStatus status
+    Date createTime
 
     static mapping = {
         table: 'subscribe'
 
-        id generator: 'uuid'
-
-        startTime column: 'start_time', sqlType: 'date'
-        endTime column: 'end_time', sqlType: 'date'
+        startTime column: 'start_time', sqlType: 'datetime'
+        endTime column: 'end_time', sqlType: 'datetime'
         status column: 'status', sqlType: 'varchar(30)'
+        endTime column: 'create_time', sqlType: 'datetime'
     }
 
     static constraints = {
         startTime nullable: true, unique: false
         endTime nullable: true, unique: false
         status nullable: true, unique: false
+        createTime nullable: true, unique: false
     }
 }

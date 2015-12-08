@@ -10,6 +10,7 @@ class Address {
 
     Address() {
         this.status = CommonStatus.VALID
+        this.createTime = new Date();
     }
 
 //    user_id	foreign_key
@@ -18,17 +19,18 @@ class Address {
     CommonStatus status
     String cityCode
     String cityName
+    Date createTime
 
     static mapping = {
         table 'address'
-
-        id generator: 'uuid'
 
         contact	column: 'contact', sqlType: 'varchar(30)', index: 'contact_Idx'
         contactTel column: 'contact_tel', sqlType: 'varchar(30)'
         status column: 'status', sqlType: 'varchar(20)'
         cityCode column: 'city_code', sqlType: 'varchar(30)'
         cityName column: 'city_name', sqlType: 'varchar(30)'
+
+        createTime column: 'create_time', sqlType: 'datetime'
     }
 
     static constraints = {
