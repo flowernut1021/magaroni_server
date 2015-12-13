@@ -6,7 +6,6 @@ import org.magaroni.conftype.TimeUnit
  * 项目表. 如 催乳, 按摩
  */
 class Item {
-    static belongsTo = [cities: City]
     static hasMany = [technician : Technician, subscribes: Subscribe]
 
     String name
@@ -36,7 +35,7 @@ class Item {
         name column: 'name', sqlType: 'varchar(30)'
         serviceDuration column: 'service_duration', sqlType: 'int'
         serviceDurationUnit column: 'service_duration_unit', sqlType: 'varchar(20)'
-        effect column: 'effect', sqlType: 'varchar(20)'
+        effect column: 'effect', sqlType: 'varchar(1000)'
         juniorPrice column: 'junior_price', sqlType: 'double'
         middlePrice column: 'middle_price', sqlType: 'double'
         seniorPrice column: 'senior_price', sqlType: 'double'

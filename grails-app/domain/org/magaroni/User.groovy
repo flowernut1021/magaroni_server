@@ -1,5 +1,6 @@
 package org.magaroni
 
+import org.magaroni.conftype.Gender
 import org.magaroni.conftype.RoleType
 import org.magaroni.conftype.UserStatus
 
@@ -20,7 +21,7 @@ class User {
 
     String name
     String nickName
-    String gender
+    Gender gender
     String idNo
     String headPic
     String pic1
