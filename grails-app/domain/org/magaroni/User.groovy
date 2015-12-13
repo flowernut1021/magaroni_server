@@ -4,6 +4,8 @@ import org.magaroni.conftype.RoleType
 import org.magaroni.conftype.UserStatus
 
 class User {
+    static belongsTo = City
+    static hasMany = [cities: City, feedbacks: Feedback, subscribes: Subscribe, orderFors: OrderFor]
 
     User() {
         this.role = RoleType.CUSTOMER
@@ -16,8 +18,6 @@ class User {
     RoleType role
     UserStatus status
 
-    String cityCode
-    String cityName
     String name
     String nickName
     String gender
@@ -41,8 +41,6 @@ class User {
         role column: 'role', sqlType: 'varchar(30)'
         status column: 'status', sqlType: 'varchar(30)'
 
-        cityCode column: 'city_code', sqlType: 'varchar(30)'
-        cityName column: 'city_name', sqlType: 'varchar(30)'
         name column: 'name', sqlType: 'varchar(30)'
         nickName column: 'nick_name', sqlType: 'varchar(30)'
         gender column: 'gender', sqlType: 'varchar(8)'
@@ -65,8 +63,6 @@ class User {
         role nullable: true, unique: false
         status nullable: true, unique: false
 
-        cityCode nullable: true, unique: false
-        cityName nullable: true, unique: false
         name nullable: true, unique: false
         nickName nullable: true, unique: false
         gender nullable: true, unique: false

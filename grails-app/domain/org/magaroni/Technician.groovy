@@ -1,16 +1,17 @@
 package org.magaroni
 
 import org.magaroni.conftype.CommonStatus
-import org.magaroni.conftype.JobLevel
 
 /**
  * 技师
  */
 class Technician {
 
+    static belongsTo = [cities: City, items: Item]
+    static hasMany = [items : Item, subscribes: Subscribe, commentses: Comments]
+
     Technician() {
         this.status = CommonStatus.VALID
-        this.jobLevel = JobLevel.JUNIOR
         this.registerDate = new Date()
     }
 
@@ -20,10 +21,8 @@ class Technician {
     String jobTel
 
     int jobYear  //工作年限
-    int jobStar  //星级
-    int jobOrderCount //接单数
+    int totalOrderCount //接单数
     String jobExperience
-    JobLevel jobLevel //
     String fitNo  //健康证号
     String fitPic
     String jobLicenseNo  //从业资格证号
@@ -35,7 +34,6 @@ class Technician {
 
     Date registerDate
 
-
     static mapping = {
         table 'technician'
 
@@ -45,10 +43,8 @@ class Technician {
         status column: 'status', sqlType: 'varchar(30)'
 
         jobYear column: 'job_year', defaultValue: 0
-        jobStar column: 'job_star', defaultValue: 2
-        jobOrderCount column: 'job_order_count', defaultValue: 0
+        totalOrderCount column: 'total_order_count', defaultValue: 0
         jobExperience column: 'job_experience', sqlType: 'varchar(1000)'
-        jobLevel column: 'job_level', sqlType: 'varchar(30)'
         fitNo column: 'fit_no', sqlType: 'varchar(30)'
         fitPic column: 'fit_pic', sqlType: 'varchar(200)'
         jobLicenseNo column: 'job_license_no', sqlType: 'varchar(30)'
@@ -69,10 +65,8 @@ class Technician {
         status nullable: true, unique: false
 
         jobYear nullable: true, unique: false
-        jobStar nullable: true, unique: false
-        jobOrderCount nullable: true, unique: false
+        totalOrderCount nullable: true, unique: false
         jobExperience nullable: true, unique: false
-        jobLevel nullable: true, unique: false
         fitNo nullable: true, unique: false
         fitPic nullable: true, unique: false
         jobLicenseNo nullable: true, unique: false

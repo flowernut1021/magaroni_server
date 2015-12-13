@@ -3,15 +3,18 @@ package org.magaroni
 import org.magaroni.conftype.OrderStatus
 import org.magaroni.conftype.PayType
 
-class Order {
+class OrderFor {
+    static belongsTo = [users: User]
 
-    Order() {
+
+    OrderFor() {
         this.status = OrderStatus.INIT
         this.createTime = new Date()
     }
-//    address_id	foreign_key
-//    user_id	foreign_key
-//    item_id	foreign_key
+
+    User user
+    Address address
+    Item item
 
     String orderNo
     OrderStatus status
@@ -19,13 +22,11 @@ class Order {
     BigDecimal orderPrice
     Date subscribeStartTime
     Date subscribeEndTime
-
     Date createTime
-
     PayType payType
 
     static mapping = {
-        table: 'order'
+        table: 'order_for'
 
         orderNo column: 'order_no', sqlType: 'varchar(100)'
         status column: 'status', sqlType: 'varchar(30)'

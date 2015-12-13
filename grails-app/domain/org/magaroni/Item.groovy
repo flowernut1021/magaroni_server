@@ -1,40 +1,48 @@
 package org.magaroni
 
-import org.magaroni.conftype.JobLevel
 import org.magaroni.conftype.TimeUnit
 
 /**
- * TODO: could I use a enum, don't use a table.
+ * 项目表. 如 催乳, 按摩
  */
-class ItemDetail {
+class Item {
+    static belongsTo = [cities: City]
+    static hasMany = [technician : Technician, subscribes: Subscribe]
 
     String name
     int serviceDuration
     TimeUnit serviceDurationUnit
     String effect
-    BigDecimal price
-    BigDecimal originalPrice
-    JobLevel level
+
+    BigDecimal juniorPrice
+    BigDecimal middlePrice
+    BigDecimal seniorPrice
+
+    BigDecimal juniorOriginPrice
+    BigDecimal middleOriginPrice
+    BigDecimal seniorOriginPrice
+
     String feature
     String symptom
     String forbiddenSymptom
     String additionalService
     String pic
 
-    //TODO: foreign key
-//    String item_cate_id
-//    String technician_id
+    City city
 
     static mapping = {
-        table: 'item_detail'
+        table: 'item'
 
         name column: 'name', sqlType: 'varchar(30)'
         serviceDuration column: 'service_duration', sqlType: 'int'
         serviceDurationUnit column: 'service_duration_unit', sqlType: 'varchar(20)'
         effect column: 'effect', sqlType: 'varchar(20)'
-        price column: 'price', sqlType: 'double'
-        originalPrice column: 'original_price', sqlType: 'double'
-        level column: 'level', sqlType: 'varchar(20)'
+        juniorPrice column: 'junior_price', sqlType: 'double'
+        middlePrice column: 'middle_price', sqlType: 'double'
+        seniorPrice column: 'senior_price', sqlType: 'double'
+        juniorOriginPrice column: 'junior_origin_price', sqlType: 'double'
+        middleOriginPrice column: 'middle_origin_price', sqlType: 'double'
+        seniorOriginPrice column: 'senior_origin_price', sqlType: 'double'
         feature column: 'feature', sqlType: 'varchar(500)'
         symptom column: 'symptom', sqlType: 'varchar(500)'
         forbiddenSymptom column: 'forbidden_symptom', sqlType: 'varchar(500)'
@@ -47,9 +55,12 @@ class ItemDetail {
         serviceDuration nullable: true, unique: false
         serviceDurationUnit nullable: true, unique: false
         effect nullable: true, unique: false
-        price nullable: true, unique: false
-        originalPrice nullable: true, unique: false
-        level nullable: true, unique: false
+        juniorPrice nullable: true, unique: false
+        middlePrice nullable: true, unique: false
+        seniorPrice nullable: true, unique: false
+        juniorOriginPrice nullable: true, unique: false
+        middleOriginPrice nullable: true, unique: false
+        seniorOriginPrice nullable: true, unique: false
         feature nullable: true, unique: false
         symptom nullable: true, unique: false
         forbiddenSymptom nullable: true, unique: false

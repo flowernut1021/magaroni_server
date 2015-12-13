@@ -6,6 +6,7 @@ import org.magaroni.conftype.CommentsLevel
  * 评价 - 对技师
  */
 class Comments {
+    static belongsTo = [technicians: Technician, users: User]
 
     Comments() {
         this.contentLevel = CommentsLevel.GOOD;
@@ -15,7 +16,9 @@ class Comments {
     CommentsLevel contentLevel
     String content
     Date commentDate
-    //TODO: technician_id    //foreign_key
+
+    Technician technician
+    User user
 
     static mapping = {
         table: 'comments'

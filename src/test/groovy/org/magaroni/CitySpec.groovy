@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-@TestFor(Order)
-class OrderSpec extends Specification {
+@TestFor(City)
+class CitySpec extends Specification {
 
     def setup() {
     }
@@ -16,7 +16,7 @@ class OrderSpec extends Specification {
     }
 
     void "test something"() {
-        expect:"fix me"
-            true == false
+        expect: "fix me"
+        true == false
     }
 }

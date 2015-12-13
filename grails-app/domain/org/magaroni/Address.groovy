@@ -7,13 +7,14 @@ import org.magaroni.conftype.CommonStatus
  * 客户地址
  */
 class Address {
+    static hasMany = [users: User, subscribes: Subscribe]
+    static belongsTo = [cities: City, users: User]
 
     Address() {
         this.status = CommonStatus.VALID
         this.createTime = new Date();
     }
 
-//    user_id	foreign_key
     String contact
     String contactTel
     CommonStatus status

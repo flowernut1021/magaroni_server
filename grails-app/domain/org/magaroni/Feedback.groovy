@@ -9,7 +9,6 @@ class Feedback {
         this.createTime = new Date();
     }
 
-//    String userId  //foreign key
     String content
     Date createTime
 

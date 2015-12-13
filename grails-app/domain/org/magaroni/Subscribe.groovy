@@ -4,15 +4,17 @@ import org.magaroni.conftype.SubscribeStatus
 
 class Subscribe {
 
+    static belongsTo = [users: User, addresses: Address, items: Item, technicians: Technician]
+
     Subscribe() {
         this.status = SubscribeStatus.INIT
         this.createTime = new Date()
     }
 
-//    user_id	foreign_key		预约人
-//    address_id	foreign_key		地址
-//    item_id	foreign_key		项目
-//    tech_id	foreign_key		技师
+    User user
+    Address address
+    Item item
+    Technician technician
 
     Date startTime
     Date endTime
@@ -25,7 +27,8 @@ class Subscribe {
         startTime column: 'start_time', sqlType: 'datetime'
         endTime column: 'end_time', sqlType: 'datetime'
         status column: 'status', sqlType: 'varchar(30)'
-        endTime column: 'create_time', sqlType: 'datetime'
+        createTime column: 'create_time', sqlType: 'datetime'
+
     }
 
     static constraints = {
